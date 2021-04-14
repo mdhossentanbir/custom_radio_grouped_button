@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class GroupedButton extends StatelessWidget {
-  const GroupedButton({Key key}) : super(key: key);
+  const GroupedButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:flutter/material.dart';
 
 class RadioButton extends StatelessWidget {
-  const RadioButton({Key key}) : super(key: key);
+  const RadioButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
