@@ -65,7 +65,7 @@ class RadioButton extends StatelessWidget {
                           'jhgiugx'
                         ],
                         defaultSelected: "STUDENT",
-                        radioButtonValue: (value) {
+                        onChanged: (value, index) {
                           print(value);
                         },
                         selectedColor: Theme.of(context).accentColor,
@@ -102,7 +102,7 @@ class RadioButton extends StatelessWidget {
                           3,
                         ],
                         defaultSelected: 1,
-                        radioButtonValue: (value) {
+                        onChanged: (value, index) {
                           print(value);
                         },
                         selectedColor: Theme.of(context).accentColor,
@@ -155,7 +155,7 @@ class RadioButton extends StatelessWidget {
                           selectedColor: Colors.white,
                           unSelectedColor: Colors.black,
                           textStyle: TextStyle(fontSize: 16)),
-                      radioButtonValue: (value) {
+                      onChanged: (value, index) {
                         print(value);
                       },
                       selectedColor: Theme.of(context).accentColor,
@@ -200,7 +200,7 @@ class RadioButton extends StatelessWidget {
                         "Saturday",
                         "Sunday",
                       ],
-                      radioButtonValue: (value) {
+                      onChanged: (value, index) {
                         print(value);
                       },
                       selectedColor: Theme.of(context).accentColor,

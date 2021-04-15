@@ -8,7 +8,7 @@ class CustomRadioButton<T> extends StatefulWidget {
     required this.buttonValues,
     this.buttonTextStyle = const ButtonTextStyle(),
     this.autoWidth = false,
-    required this.radioButtonValue,
+    required this.onChanged,
     required this.unSelectedColor,
     this.unSelectedBorderColor,
     this.padding = 3,
@@ -66,7 +66,7 @@ class CustomRadioButton<T> extends StatefulWidget {
   ///Styling class for label
   final ButtonTextStyle buttonTextStyle;
 
-  final void Function(T) radioButtonValue;
+  final void Function(T, T) onChanged;
 
   ///Unselected Color of the button
   final Color unSelectedColor;
@@ -149,7 +149,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                       borderRadius: BorderRadius.zero,
                     ),
               onPressed: () {
-                widget.radioButtonValue(e);
+                widget.onChanged(e, index);
                 setState(() {
                   _currentSelectedLabel = widget.buttonLables[index];
                 });
@@ -209,7 +209,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                     borderRadius: BorderRadius.zero,
                   ),
             onPressed: () {
-              widget.radioButtonValue(e);
+              widget.onChanged(e, index);
               setState(() {
                 _currentSelectedLabel = widget.buttonLables[index];
               });
