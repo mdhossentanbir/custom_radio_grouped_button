@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:custom_radio_grouped_button/CustomButtons/ButtonTextStyle.dart';
-
 import '../custom_radio_grouped_button.dart';
 
 // ignore: must_be_immutable
@@ -19,7 +17,7 @@ class CustomCheckBoxGroup<T> extends StatefulWidget {
     this.enableShape = false,
     this.elevation = 0,
     required this.buttonLables,
-    required this.checkBoxButtonValues,
+    required this.onChanged,
     required this.selectedColor,
     this.selectedBorderColor,
     this.wrapAlignment = WrapAlignment.start,
@@ -72,7 +70,7 @@ class CustomCheckBoxGroup<T> extends StatefulWidget {
 
   final List<String> buttonLables;
 
-  final void Function(List<T>) checkBoxButtonValues;
+  final void Function(List<T>, List<T>) onChanged;
 
   ///Selected Color of button
   final Color selectedColor;
@@ -104,6 +102,7 @@ class CustomCheckBoxGroup<T> extends StatefulWidget {
 
 class _CustomCheckBoxGroupState extends State<CustomCheckBoxGroup> {
   List<dynamic> selectedLables = [];
+  List<dynamic> selectedIndex = [];
 
   Color borderColor(e) => (selectedLables.contains(e) ? widget.selectedBorderColor : widget.unSelectedBorderColor) ?? Theme.of(context).primaryColor;
 
@@ -154,11 +153,14 @@ class _CustomCheckBoxGroupState extends State<CustomCheckBoxGroup> {
               onPressed: () {
                 if (selectedLables.contains(e)) {
                   selectedLables.remove(e);
+                  selectedIndex.remove(index);
                 } else {
                   selectedLables.add(e);
+                  selectedIndex.add(index);
                 }
+
                 setState(() {});
-                widget.checkBoxButtonValues(selectedLables);
+                widget.onChanged(selectedLables, selectedIndex);
               },
               child: Center(
                 child: Text(
@@ -217,11 +219,13 @@ class _CustomCheckBoxGroupState extends State<CustomCheckBoxGroup> {
             onPressed: () {
               if (selectedLables.contains(e)) {
                 selectedLables.remove(e);
+                selectedIndex.remove(index);
               } else {
                 selectedLables.add(e);
+                selectedIndex.add(index);
               }
               setState(() {});
-              widget.checkBoxButtonValues(selectedLables);
+              widget.onChanged(selectedLables, selectedIndex);
             },
             child: Center(
               child: Text(

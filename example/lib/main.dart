@@ -78,7 +78,7 @@ class GroupedButton extends StatelessWidget {
                           "Wednesday",
                           "Thursday",
                         ],
-                        checkBoxButtonValues: (values) {
+                        onChanged: (values, indexes) {
                           print(values);
                         },
                         defaultSelected: ["Monday"],
@@ -120,7 +120,7 @@ class GroupedButton extends StatelessWidget {
                           "Saturday",
                           "Sunday",
                         ],
-                        checkBoxButtonValues: (values) {
+                        onChanged: (values, indexes) {
                           print(values);
                         },
                         defaultSelected: ["Sunday"],
@@ -188,7 +188,7 @@ class GroupedButton extends StatelessWidget {
                         "Saturday",
                         "Sunday",
                       ],
-                      checkBoxButtonValues: (values) {
+                      onChanged: (values, indexes) {
                         print(values);
                       },
                       spacing: 0,
@@ -245,7 +245,7 @@ class GroupedButton extends StatelessWidget {
                         "Saturday",
                         "Sunday",
                       ],
-                      checkBoxButtonValues: (values) {
+                      onChanged: (values, indexes) {
                         print(values);
                       },
                       defaultSelected: ["Sunday"],
